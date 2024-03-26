@@ -183,7 +183,7 @@ function phase_3()
         WA.room.showLayer('closed_lab_door');
     });
 
-    let nb_hole = 23;
+    let nb_hole = 31;
     for (let index = 1; index < nb_hole + 1; index++)
     {
         trapLayer('HideTile/TrappedRoom/Hole_' + index, '#Depart'); 
@@ -305,8 +305,8 @@ function phase_3()
     let coatRackHint = new InteractAction(
         "Items/LabIndustry/CoatRackHint",
         "Appuyez sur espace pour prendre l'indice.",
-        ["Bravo, vous avez récupéré le premier indice, c'est la lettre C ! \n C _ _ _"],
-        ["Bravo, vous avez récupéré le premier indice, c'est la lettre C ! \n C _ _ _"],
+        ["Bravo, vous avez récupéré le premier indice, c'est la lettre A ! \n A _ _ _"],
+        ["Bravo, vous avez récupéré le premier indice, c'est la lettre A ! \n A _ _ _"],
         "coatRackText",
         () => {
             createVariableWA("coatRackHint");
@@ -361,8 +361,8 @@ function phase_3()
     let cafetHint = new InteractAction(
         "Items/LabIndustry/CafetHint",
         "Appuyez sur espace pour prendre l'indice",
-        ["Félicitations, vous avez trouvé le deuxième indice, c'est la lettre H ! _ H _ _"],
-        ["Félicitations, vous avez trouvé le deuxième indice, c'est la lettre H ! _ H _ _"],
+        ["Félicitations, vous avez trouvé le deuxième indice, c'est la lettre L ! _ L _ _"],
+        ["Félicitations, vous avez trouvé le deuxième indice, c'est la lettre L ! _ L _ _"],
         "cafetText",
         () => {
             createVariableWA("cafetHint");
@@ -432,8 +432,8 @@ function phase_3()
     let BinHint = new InteractAction(
         "Items/LabIndustry/BinHint",
         "Appuyez sur espace pour prendre l'indice",
-        ["Bien joué, tu as le troisième indice, c'est la lettre A ! _ _ A _"],
-        ["Bien joué, tu as le troisième indice, c'est la lettre A ! _ _ A _"],
+        ["Bien joué, tu as le troisième indice, c'est la lettre L ! _ _ L _"],
+        ["Bien joué, tu as le troisième indice, c'est la lettre L ! _ _ L _"],
         "binText",
         () => {
             createVariableWA("binHint");
@@ -488,7 +488,7 @@ function phase_3()
     let chestHint = new InteractAction(
         "Items/LabIndustry/ChestHint",
         "Appuyez sur espace pour prendre l'indice",
-        ["Super, tu viens de prendre le quatrième et dernier indice, c'est la lettre T ! _ _ _ T"],
+        ["Super, tu viens de prendre le quatrième et dernier indice, c'est la lettre O ! _ _ _ O"],
         ["Vous n'avez pas la clé du coffre"],
         "chestText",
         () => {
@@ -754,10 +754,10 @@ function phase_3()
     
     //Zone de TP_1
     onEnterAuthorization(zoneFirstTP, ['cardAccessZoneFirstTP'], 'EscapeGameText');
-    getVariableOnZone('Step4/FirstTP/Tp1-3', ['cardAccessZoneSecondTP']);
+    getVariableOnZone('Step4/FirstTP/Tp1-2', ['cardAccessZoneSecondTP']);
     onTpCondition('Step4/FirstTP/Tp1-1', '#Reset', () => { return true }, 'tpDepart1Step4');
-    onTpCondition('Step4/FirstTP/Tp1-2', '#Reset', () => { return true }, 'tpDepart1Step4');
-    onTpCondition('Step4/FirstTP/Tp1-3', '#TpDepart_2', () => {
+    onTpCondition('Step4/FirstTP/Tp1-3', '#Reset', () => { return true }, 'tpDepart1Step4');
+    onTpCondition('Step4/FirstTP/Tp1-2', '#TpDepart_2', () => {
         return WA.player.state['cardAccessZoneFirstTP'] != null ? true : false;
     }, 'tpDepart1Step4');
 
@@ -765,9 +765,9 @@ function phase_3()
 
     //Zone de TP_2
     onEnterAuthorization(zoneSecondTP, ['cardAccessZoneSecondTP'], 'EscapeGameText');
-    getVariableOnZone('Step4/SecondTP/Tp2-2', ['cardAccessZoneThirdTP']);
-    onTpCondition('Step4/SecondTP/Tp2-1', '#Reset', () => { return true }, 'tpDepart2Step4');
-    onTpCondition('Step4/SecondTP/Tp2-2', '#TpDepart_3', () => {
+    getVariableOnZone('Step4/SecondTP/Tp2-1', ['cardAccessZoneThirdTP']);
+    onTpCondition('Step4/SecondTP/Tp2-2', '#Reset', () => { return true }, 'tpDepart2Step4');
+    onTpCondition('Step4/SecondTP/Tp2-1', '#TpDepart_3', () => {
         return WA.player.state['cardAccessZoneSecondTP'] != null ? true : false;
     }, 'tpDepart2Step4');
     onTpCondition('Step4/SecondTP/Tp2-3', '#Reset', () => { return true }, 'tpDepart2Step4');
@@ -776,20 +776,20 @@ function phase_3()
 
     //Zone de TP_3
     onEnterAuthorization(zoneThirdTP, ['cardAccessZoneThirdTP'], 'EscapeGameText');
-    getVariableOnZone('Step4/ThirdTP/Tp3-1', ['cardAccessZoneFourthTP']);
-    onTpCondition('Step4/ThirdTP/Tp3-1', '#TpDepart_4', () => {
+    getVariableOnZone('Step4/ThirdTP/Tp3-3', ['cardAccessZoneFourthTP']);
+    onTpCondition('Step4/ThirdTP/Tp3-3', '#TpDepart_4', () => {
         return WA.player.state['cardAccessZoneThirdTP'] != null ? true : false;
     }, 'tpDepart3Step4');
     onTpCondition('Step4/ThirdTP/Tp3-2', '#Reset', () => { return true }, 'tpDepart3Step4');
-    onTpCondition('Step4/ThirdTP/Tp3-3', '#Reset', () => { return true }, 'tpDepart3Step4');
+    onTpCondition('Step4/ThirdTP/Tp3-1', '#Reset', () => { return true }, 'tpDepart3Step4');
     
 
 
     //Zone de TP_4
     onEnterAuthorization(zoneFourthTP, ['cardAccessZoneFourthTP'], 'EscapeGameText');
-    getVariableOnZone('Step4/FourthTP/Tp4-2', ['cardAccessZoneFifthTP']);
-    onTpCondition('Step4/FourthTP/Tp4-1', '#Reset', () => { return true }, 'tpDepart2Step4');
-    onTpCondition('Step4/FourthTP/Tp4-2', '#TpDepart_5', () => {
+    getVariableOnZone('Step4/FourthTP/Tp4-1', ['cardAccessZoneFifthTP']);
+    onTpCondition('Step4/FourthTP/Tp4-2', '#Reset', () => { return true }, 'tpDepart2Step4');
+    onTpCondition('Step4/FourthTP/Tp4-1', '#TpDepart_5', () => {
         return WA.player.state['cardAccessZoneFourthTP'] != null ? true : false;
     }, 'tpDepart2Step4');
     onTpCondition('Step4/FourthTP/Tp4-3', '#Reset', () => { return true }, 'tpDepart2Step4');
@@ -798,10 +798,10 @@ function phase_3()
 
     //Zone de TP_5
     onEnterAuthorization(zoneFifthTP, ['cardAccessZoneFifthTP'], 'EscapeGameText');
-    getVariableOnZone('Step4/FifthTP/Tp5-3', ['cardAccessZoneFinalStep4']);
-    onTpCondition('Step4/FifthTP/Tp5-1', '#Reset', () => { return true }, 'tpDepart2Step5');
+    getVariableOnZone('Step4/FifthTP/Tp5-1', ['cardAccessZoneFinalStep4']);
+    onTpCondition('Step4/FifthTP/Tp5-3', '#Reset', () => { return true }, 'tpDepart2Step5');
     onTpCondition('Step4/FifthTP/Tp5-2', '#Reset', () => { return true }, 'tpDepart2Step5');
-    onTpCondition('Step4/FifthTP/Tp5-3', '#TpArrive', () => {
+    onTpCondition('Step4/FifthTP/Tp5-1', '#TpArrive', () => {
         return WA.player.state['cardAccessZoneFifthTP'] != null ? true : false;
     }, 'tpDepart2Step5');
     onTpCondition('Step4/FifthTP/Tp5-4', '#Reset', () => { return true }, 'tpDepart2Step5');
