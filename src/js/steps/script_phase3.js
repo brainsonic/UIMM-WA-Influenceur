@@ -96,7 +96,7 @@ function phase_3()
     let cardAccess = new ItemPickUpOnCondition(
         "Items/TrappedRoom/CardAccess",
         "Appuyez sur espace pour ramasser le badge d'accès",
-        ["Vous avez récuperé le badge d'accès"],
+        ["Vous avez récupéré le badge d'accès"],
         ["Vous devez d'abord parler à Yumi avant de le ramasser"],
         "cardAccessText",
         "cardAccess",
@@ -351,6 +351,9 @@ function phase_3()
                     "Object_trapDoor"
                 );
             }
+            if(trapAppear == true){
+                WA.room.showLayer('TrapLayer');
+            }
             return true
         },
         "interract",
@@ -375,7 +378,7 @@ function phase_3()
                 trapAppear = true;
                 let trapDoor = new InteractAction(
                     "InteractAction/LabIndustry/TrapDoor",
-                    "Cha alors, tu as réuchi la troisième épreuve. Appuyez chur espace pour ouvrir la trappe. Chalut et bonne route, cha a été un plaisir de vous rencontrer !",
+                    "Ça y est, vous avez réussi la troisième épreuve.  Appuyez sur espace pour ouvrir la trappe. ",
                     [
                         "Vous entrez dans la trappe"
                     ],
@@ -406,6 +409,9 @@ function phase_3()
                     "InteractAction",
                     "Object_trapDoor"
                 );
+            }
+            if(trapAppear == true){
+                WA.room.showLayer('TrapLayer');
             }
             return true;
         },
@@ -443,10 +449,10 @@ function phase_3()
                     && WA.player.state["binHint"] != null && WA.player.state["binHint"] == true
                     && trapAppear == false)
             {
-                trapAppear = false;
+                trapAppear = true;
                 let trapDoor = new InteractAction(
                     "InteractAction/LabIndustry/TrapDoor",
-                    "Cha alors, tu as réuchi la troisième épreuve. Appuyez chur espace pour ouvrir la trappe. Chalut et bonne route, cha a été un plaisir de vous rencontrer !",
+                    "Ça y est, vous avez réussi la troisième épreuve.  Appuyez sur espace pour ouvrir la trappe. ",
                     [
                         "Vous entrez dans la trappe"
                     ],
@@ -477,6 +483,9 @@ function phase_3()
                     "InteractAction",
                     "Object_trapDoor"
                 );
+            }
+            if(trapAppear == true){
+                WA.room.showLayer('TrapLayer');
             }
             return true;
         },
@@ -534,6 +543,9 @@ function phase_3()
                         "InteractAction",
                         "Object_trapDoor"
                     );
+                }
+                if(trapAppear == true){
+                    WA.room.showLayer('TrapLayer');
                 }
                 return true
         },
@@ -628,7 +640,7 @@ function phase_3()
         "Appuyez sur espace pour lire l'affiche",
         [
         "Infos, témoignages, nouveautés, toutes nos actus sont sur Instagram.",
-        "Suivez-nous ! https://www.instagram.com/uimm.lafabriquedelavenir/"
+        "Suivez nous sur instagram : @uimm.lafabriquedelavenir"
         ],
         "UIMMInstaText",
         "interact",
@@ -712,7 +724,7 @@ function phase_3()
         }
         else
         {
-            const textEnterFinalRoom = "Nous sommes les Technophoby. Nous voulons conserver le monde tel qu'il est aujourd'hui sans Rayonance. Ne vous approchez pas de ce bouton. Si vous appuyez, le Monde de Yumi sera sous le contrôle de l'énergie infinie."
+            const textEnterFinalRoom = "Nous sommes les Technophoby. Nous voulons conserver le monde tel qu'il est aujourd'hui sans Rayonance. Ne vous approchez pas de ce bouton. Si vous appuyez, le Monde de Yumi aura accès à l'énergie infinie."
             let popupOpened = false
             WA.room.onEnterLayer("Interactions/FinalRoom/EnterFinalRoom").subscribe(() => {
                 if (!popupOpened) {
@@ -817,7 +829,7 @@ function phase_3()
         [
         "Vous avez retrouvé ma clé.",
         "Vous avez ma gratitude éternelle !",
-        "Voilà ce que je craignais tant de perdre.",
+        "Je vous laisse ouvrir mon coffre pour récupérer ce que je craignais tant de perdre",
         "En guise de gratitude, voici une mystérieuse séquence, je ne suis pas sûr de sa signification, mais j'ai le sentiment que c'est très important pour vous.",
         "Conservez-la ou mémorisez-la, cela pourra vous être utile.",
         ],
@@ -853,7 +865,7 @@ function phase_3()
         "Appuyez sur espace pour ouvrir le coffre !",
         [
         "Vous avez récupéré une mystérieuse séquence !",
-        "Gardez-la précieusement, elle vous servira pour les prochaines quêtes"
+        'Gardez-la précieusement, elle vous servira pour les prochaines quêtes, vous la retrouverez en cliquant sur "Séquence secrète" en bas de l\'écran !'
         ],
         [
             "Vous avez besoin d'une clé pour ouvrir ce coffre !"
@@ -911,7 +923,7 @@ function phase_3()
         {
         WA.ui.actionBar.addButton({
             id: 'sequence-btn',
-            label: 'Carte Secrète',
+            label: 'Séquence Secrète',
             callback: (event) => {
             WA.player.state['sequenceButtonDisplayed'] = true;
             WA.ui.modal.openModal({
@@ -932,7 +944,7 @@ function phase_3()
         {
             WA.ui.actionBar.addButton({
             id: 'sequence-btn',
-            label: 'Carte Secrète',
+            label: 'Séquence Secrète',
             callback: (event) => {
                 createVariableWA("sequenceButtonDisplayed");
                 WA.ui.modal.openModal({
