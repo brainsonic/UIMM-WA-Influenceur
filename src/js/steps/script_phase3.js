@@ -26,6 +26,7 @@ function phase_3()
     const WorldSkillsStatuesLink = "https://www.worldskills-laserie.fr/";
     const UIMMRecruteLink = "https://www.lindustrie-recrute.fr";
 
+    const srcSequenceTPs = "Média.jpeg";
     //ParkOutside (Out of the gate)
 
     let chat = new Dialog(
@@ -66,8 +67,7 @@ function phase_3()
             "Chalut, Cha va ?",
             "Vous cherchez encore le code de la porte ?",
             "Allez, je vous aide.",
-            "Quel est le point commun entre le paPIllon, le PIaf et le laPIn ?",
-            "Oui, j'aime les chacher, mais c'est l'orthographe qu'il faut étudier !"
+            "Combien font 8 puissance 5 +10 000 -768 ?"
         ],
         "ChatParkInsideText",
         "interact",
@@ -268,7 +268,7 @@ function phase_3()
             trapAppear = true;
             let trapDoor = new InteractAction(
                 "InteractAction/LabIndustry/TrapDoor",
-                "Cha alors, tu as réuchi la troisième épreuve. Appuyez chur espace pour ouvrir la trappe. Chalut et bonne route, cha a été un plaisir de vous rencontrer !",
+                "Ça y est, vous avez réussi la troisième épreuve.  Appuyez sur espace pour ouvrir la trappe. ",
                 [
                     "Vous entrez dans la trappe"
                 ],
@@ -489,11 +489,10 @@ function phase_3()
         "Items/LabIndustry/ChestHint",
         "Appuyez sur espace pour prendre l'indice",
         ["Super, tu viens de prendre le quatrième et dernier indice, c'est la lettre O ! _ _ _ O"],
-        ["Vous n'avez pas la clé du coffre"],
-        "chestText",
+        ["Super, tu viens de prendre le quatrième et dernier indice, c'est la lettre O ! _ _ _ O"],
+        "tenteText",
         () => {
-            if (WA.player.state["keyItem"] != null && WA.player.state["keyItem"] == true)
-            {
+            
                 createVariableWA("chestHint");
                 if (WA.player.state["cafetHint"] != null && WA.player.state["cafetHint"] == true
                     && WA.player.state["chestHint"] != null && WA.player.state["chestHint"] == true
@@ -504,7 +503,7 @@ function phase_3()
                     trapAppear = true;
                     let trapDoor = new InteractAction(
                         "InteractAction/LabIndustry/TrapDoor",
-                        "Cha alors, tu as réuchi la troisième épreuve. Appuyez chur espace pour ouvrir la trappe. Chalut et bonne route, cha a été un plaisir de vous rencontrer !",
+                        "Ça y est, vous avez réussi la troisième épreuve.  Appuyez sur espace pour ouvrir la trappe. ",
                         [
                             "Vous entrez dans la trappe"
                         ],
@@ -537,8 +536,6 @@ function phase_3()
                     );
                 }
                 return true
-            }
-            return false;
         },
         "interract",
         "Object",
@@ -822,7 +819,7 @@ function phase_3()
         "Vous avez ma gratitude éternelle !",
         "Voilà ce que je craignais tant de perdre.",
         "En guise de gratitude, voici une mystérieuse séquence, je ne suis pas sûr de sa signification, mais j'ai le sentiment que c'est très important pour vous.",
-        "Concervez-la ou mémorisez-la, cela pourra vous être utile.",
+        "Conservez-la ou mémorisez-la, cela pourra vous être utile.",
         ],
         [
         "Ah, vous voilà enfin !",
@@ -841,6 +838,7 @@ function phase_3()
             return true;
         }
         else {
+            createVariableWA("startSideQuestStep4");
             WA.player.state["startSideQuestStep4"] = true;
             return false;
         }
@@ -864,6 +862,7 @@ function phase_3()
         () => {
         if (WA.player.state["allowOpenChest"] == true ) {
             createVariableWA("sequenceObtained");
+            WA.player.state["sequenceObtained"] = true;
             return true;
         }
         else {
@@ -893,11 +892,8 @@ function phase_3()
         ],
         "ArnaudText",
         () => {
-        if (WA.player.state["arnaudRevealed"] != true
-        && WA.player.state["startSideQuestStep4"] != null && WA.player.state["startSideQuestStep4"] == true) {
-            
+        if (WA.player.state["startSideQuestStep4"] != null && WA.player.state["startSideQuestStep4"] == true) {
             //Variable pour revenir au dialogue de départ quand arnaud a été démasqué
-            createVariableWA('arnaudRevealed');
             createVariableWA("chestDidierKey");
             return true;
         }
@@ -920,7 +916,7 @@ function phase_3()
             WA.player.state['sequenceButtonDisplayed'] = true;
             WA.ui.modal.openModal({
                 title: 'Sequence',
-                src: 'https://brainsonic.github.io/UIMM-WA-Extras/sequence.html',
+                src: "https://brainsonic.github.io/UIMM-WA-Extras/sequenceInfluencer.html",
                 allow: "fullscreen; clipboard-read;",
                 allowApi: !0,
                 position: "center",
@@ -941,7 +937,7 @@ function phase_3()
                 createVariableWA("sequenceButtonDisplayed");
                 WA.ui.modal.openModal({
                 title: 'Sequence',
-                src: 'https://brainsonic.github.io/UIMM-WA-Extras/sequence.html',
+                src: 'https://brainsonic.github.io/UIMM-WA-Extras/sequenceInfluencer.html',
                 allow: "fullscreen; clipboard-read;",
                 allowApi: !0,
                 position: "center",

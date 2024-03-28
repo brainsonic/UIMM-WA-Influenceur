@@ -16,7 +16,7 @@ function phase_2()
 
     //ShowRoom
 
-    const anaisVideoLink = "https://www.youtube.com/embed/DE_sTYDs4rg?si=EvU29NiQVEYlUMBs";
+    const anaisVideoLink = "https://www.youtube.com/embed/DE_sTYDs4rg";
     const Liebherr_aerospaceVideoLink = "https://www.youtube.com/embed/unodEN9Xwls?si=xgK0E-M33XjEG1kz";
     const LucieVideoLink = "https://www.youtube.com/embed/7mUgmZgLrxM?si=MIFAXrMjrElzpuI9";
     const OtechVideoLink = "https://www.youtube.com/embed/eBuPRPSBXlc?si=iMw0riL5KJyYjfIe"; //TO CHANGE
@@ -26,14 +26,14 @@ function phase_2()
     const GalvanoplasteVideoLink = "https://www.youtube.com/embed/QFpgqyR30Lw?si=YbXrJHJ5YnFtyqm6";
     const RafaelVideoLink = "https://www.youtube.com/embed/jIVCWY2mxjs?si=3MTDTHHaeCGGYpeN";
     const respBureauVideoLink = "https://www.youtube.com/embed/YzXnbdKdbwY?si=5Jt9ZcvzwENDE7nA";
-    const YumiITWBot = "https://chat.csml.dev/s/hbw8pdiu5ok2a7iyycx0vxix0ujwnrbm";
+    const YumiITWBot = "https://chat.csml.dev/s/xn6mhygbrdefcsnkrxkpr3byyciytrs8";
     const MaximeVideoLink = "https://www.youtube.com/embed/RV-WS11CLTk?si=RUVpvBUxVXbagXU4";
 
     //ParkInside
 
     const doigbyVideoLink = "https://www.youtube.com/embed/3An5XwFbKgM?si=Sm7VNc1OKJpUxyQz";
     const tiboInShapeVideoLink = "https://www.youtube.com/embed/3yAL-w1U-6s?si=EBabp9OWFY4KbO8s";
-    const RomaneBotLink = "https://chat.csml.dev/s/dwszjr5yty6xglcsycmtcts4p0xmvjid"; //
+    const RomaneBotLink = "https://chat.csml.dev/s/rtuuawj735nwlgjifcga5jfnlm7ykh01"; //
     const InfluenceBotLink = "https://chat.csml.dev/s/2yh4lfxd7nba5zevmybgseb41bcn6h9b";
     const linkVideoJeune3 = "https://www.youtube.com/embed/mgX4eHVDlTc?si=DIfTDwIU92KX9KWg";
 
@@ -41,7 +41,7 @@ function phase_2()
 
     const PaulygonesVideoLink = "https://www.youtube.com/embed/vqbbGDkOG30?si=0iaVf_eClMnZ0qRH";
     const hiHacksVideoLink = "https://www.youtube.com/embed/BChzaJv_JzQ?si=K1G9ZNtbFTiTO3AA";
-    const YumiLabBotLink = "https://chat.csml.dev/s/klxfbaancmfkzzwaxqge99dx3ayvksex";
+    const YumiLabBotLink = "https://chat.csml.dev/s/yzxfnb7rpnoqgykpt0yoec0l41kvwjph";
 
     //DinningRoom
 
@@ -74,7 +74,8 @@ function phase_2()
         "Interactions/MetierRoom/Cari",
         "Appuyez sur espace pour parler à Jordan !",
         [
-        "Bonjour, moi c’est Jordan et je suis concepteur de systèmes embarqués. Vous connaissez ? Non ? Alors venez découvrir mon métier !",
+        "Bonjour, moi c’est Jordan et je suis concepteur de systèmes embarqués. Vous connaissez ?",
+        "Ah si vous cherchez la clé d'Anton, je crois que Anaïs a des informations pour vous. Elle est dans le hub des métiers. Mais ne partez pas sans découvrir mon métier !",
         ],
         "Cari",
         cariVideoLink,
@@ -88,8 +89,7 @@ function phase_2()
         "Appuyez sur espace pour parler à Fanny !",
         [
         "Moi, c’est Fanny, et grâce à l'apprentissage, j'ai pu effectuer un semestre universitaire à l'étranger.",
-        "Avant de vous en dire plus, si vous cherchez quelqu'un avec une clé, je l'ai vu partir vers le jardin.",
-        "Mais ne partez pas tout de suite et découvrez mon parcours !"
+        "Découvrez mon parcours !",
         ],
         [
         "Moi, c’est Fanny, et grâce à l'apprentissage, j'ai pu effectuer un semestre universitaire à l'étranger."
@@ -150,7 +150,7 @@ function phase_2()
         "Appuyez sur espace pour parler à Mélody",
         [
             "Salut, moi c'est Mélody ! Au quotidien, je suis très rigoureuse, minutieuse même.",
-            "Vous allez dire encore une matheuse que le chiffre PI n'effraie pas, tout comme le trio dans le jardin. Mais c'est normal, car je suis en charge de la conformité de pièces complexes. Et dans le nucléaire, on ne rigole pas avec la sécurité.",
+            "C'est important car je suis responsable de la conformité de pièces complexes ! Et dans le nucléaire, on ne rigole pas avec la sécurité.",
             "Laissez-moi vous en dire plus !",
         ],
         "MelodyText",
@@ -187,6 +187,7 @@ function phase_2()
         "Appuyez sur espace pour parler à Anaïs !",
         [
         "Salut, moi c’est Anaïs et je suis technicienne méthodes. Si vous ne savez pas en quoi ça consiste : venez, je vous montre !",
+        "! Mais avant de vous en dire plus, si vous cherchez quelqu'un avec une clé, je l'ai vu partir vers la cafet des pros, il a une chemise bleue. ",
         ],
         "Anais",
         anaisVideoLink,
@@ -336,7 +337,6 @@ function phase_2()
         "Appuyez sur espace pour parler à Maëva !",
         [
         "Hello, moi c’est Maëva : le vidéaste Tibo InShape est revenu en Bac Pro pour découvrir mon métier d’ajusteur-monteur, ainsi que les autres métiers de l'industrie aéronautique. Regardez ce que ça donne !",
-        "Avant ça, si vous cherchez une personne possédant une clé, je l'ai vu partir vers le hub des métiers, il avait une chemise bleue.",
         ],
         [
         "Hello, moi c’est Maëva : le vidéaste Tibo InShape est revenu en Bac Pro pour découvrir mon métier d’ajusteur-monteur, ainsi que les autres métiers de l'industrie aéronautique. Regardez ce que ça donne !",

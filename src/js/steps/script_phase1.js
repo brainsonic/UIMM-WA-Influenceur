@@ -9,7 +9,7 @@ function phase_1()
 
     const linkChatBotAccueil = "https://chat.csml.dev/s/qqr2rsopfpb7do1mhvqhu5wtmezc0qzg"; //
     const linkChatBotYumiTransporteurPhase1 = "https://chat.csml.dev/s/3pkrfecaabpnkm4evxotkvovoyhkc4o5"; //
-    const linkChatBotIngénieure = "https://chat.csml.dev/s/cveg2t5ddnfrdlelb9vmzvpqvpzdlhew"
+    const linkChatBotIngénieure = "https://chat.csml.dev/s/9lbcvwsyt2o5cp6hgjreb1z1gzvrvn11"
     const linkVideoJeune1 = "https://www.youtube.com/embed/9QDd6dH0-Xc?si=nVcJ4ryPrmNZ8c7u";
     const linkVideoJeune2 = "https://www.youtube.com/embed/pDMzhgu_Qbo?si=VKqmGCg01AkfOIQJ";
     const linkVideoJeune3 = "https://www.youtube.com/embed/mgX4eHVDlTc?si=DIfTDwIU92KX9KWg";
@@ -160,7 +160,6 @@ function phase_1()
         [
             "Bonjour, moi c’est Magaly. Grâce à l’industrie j’ai réussi à combiner ma passion et mon métier.",
             "Vous voulez savoir comment ? Allez, j'enfile mon casque et je vous montre !",
-            "Et si vous cherchez la clé d'Anton, je crois que Fanny a des informations pour vous. Une brune, chemise noire, qui travaille pour l'industrie, facile non ?",
         ],
         "MagalyText",
         linkVideoMagaly,
