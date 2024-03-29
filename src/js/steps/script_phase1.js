@@ -132,7 +132,7 @@ function phase_1()
         "Interactions/Jeune1",
         "Appuyez sur espace pour parler à Antonin !",
         [
-            "Salut, moi c'est Antonin ! Pour découvrir sur quel super projet j'ai travaillé, c'est ici :",
+            "Salut, moi c'est \n Killian ! Toi aussi tu es un passionné de l'industrie comme Yumi ! Pour découvrir sur quel super projet j'ai travaillé c'est ici :",
         ],
         "Jeune1",
         linkVideoJeune1,

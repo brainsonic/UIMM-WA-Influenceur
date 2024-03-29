@@ -33,15 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 
-  //BUTTON TUTORIAL
-  WA.ui.actionBar.addButton({
-    id: 'tutorial-btn',
-    label: 'Tutoriel',
-    callback: (event) => {
-      tutorial();
-    }
-  })
-
   phase_1();
   phase_2();
   phase_3();
