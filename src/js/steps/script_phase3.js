@@ -122,7 +122,6 @@ function phase_3()
         [
         "Bonjour, dépêchez-vous les saboteurs sont à votre poursuite !",
         "Pour sortir d'ici, vous devez récupérer 4 indices éparpillés dans le labo.",
-        "Mais, la mission se complique. Car un des messages est bloqué dans une caisse. Il faudra d'abord trouver la clé pour l'ouvrir.",
         "Tous les indices forment un mot qui vous donnera une indication pour trouver une trappe secrète. Celle-ci donnera accès à un sous-sol.",
         "Dans cet atelier, vous trouverez un transporteur pour vous échapper.",
         "Allez-y maintenant, ils arrivent."
@@ -865,7 +864,7 @@ function phase_3()
         [
         "Vous avez récupéré une mystérieuse séquence !",
         'Gardez-la précieusement, elle vous servira pour les prochaines quêtes, vous la retrouverez en cliquant sur "Séquence secrète" en bas de \nl\'écran !'
-        ],
+        ],f
         [
             "Vous avez besoin d'une clé pour ouvrir ce coffre !"
         ],
