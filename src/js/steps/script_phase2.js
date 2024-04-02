@@ -154,7 +154,6 @@ function phase_2()
             "Je suis en charge de la conformité de pièces complexes.",
             "Et dans le nucléaire, on ne rigole pas avec la sécurité.",
             "Laissez-moi vous en dire plus !",
-            "Ah ! Et j'aime les maths : PI ne m'effraie pas (tout comme le trio dans le jardin) !",
         ],
         "MelodyText",
         MelodyVideoLink,
