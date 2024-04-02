@@ -900,20 +900,20 @@ function phase_3()
     WA.onInit().then(() => {
         if (WA.player.state['sequenceObtained'] != null && WA.player.state['sequenceObtained'] == true)
         {
-        WA.ui.actionBar.addButton({
-            id: 'sequence-btn',
-            label: 'Séquence Secrète',
-            callback: (event) => {
-            WA.player.state['sequenceButtonDisplayed'] = true;
-            WA.ui.modal.openModal({
-                title: 'Sequence',
-                src: "https://brainsonic.github.io/UIMM-WA-Extras/sequenceInfluencer.html",
-                allow: "fullscreen; clipboard-read;",
-                allowApi: !0,
-                position: "center",
+            WA.ui.actionBar.addButton({
+                id: 'sequence-btn',
+                label: 'Séquence Secrète',
+                callback: (event) => {
+                WA.player.state['sequenceButtonDisplayed'] = true;
+                WA.ui.modal.openModal({
+                    title: 'Sequence',
+                    src: "https://brainsonic.github.io/UIMM-WA-Extras/sequenceInfluencer.html",
+                    allow: "fullscreen; clipboard-read;",
+                    allowApi: !0,
+                    position: "center",
+                })
+                }
             })
-            }
-        })
         }
 
         //Variable if player has obtained the sequence
