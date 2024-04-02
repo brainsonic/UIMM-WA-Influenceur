@@ -45,14 +45,14 @@ function phase_2()
 
     //DinningRoom
 
-    const AurélienChatLink = "https://chat.csml.dev/s/mdpagk2kgwff7cjjjlqxfbkmtaegcc8z"; //
-    const AdrienChatLink = "https://chat.csml.dev/s/eimrkwagnizsgkt2exfyzpqikxvsiqok"; //
-    const AnneChatLink = "https://chat.csml.dev/s/urfgrirj0fzedjnkgdtc8pndlybbirja"; //
-    const AurélieChatLink = "https://chat.csml.dev/s/nzulmz6enql33he6f7ghqv6vmw9iyqai"; //
-    const LaureChatLink = "https://chat.csml.dev/s/cjue6rorfvlktkzitr71bdjrxchv8rg9"; //
-    const LudivineChatLink = "https://chat.csml.dev/s/oegmltlziitgfljossd3gdvstkoggde7"; //
-    const LudovicChatLink = " https://chat.csml.dev/s/5swwzc2ho5ldzer5orwie8uksvsymrjj"; //
-    const SéverineChatLink = "https://chat.csml.dev/s/iofny0f6wdowp8avygfofsqg5lm5hmx8"; //
+    const AurélienChatLink = "https://www.youtube.com/embed/nH7qhiTUPdY?si=jQ8I8OD7DVdgh2AC"; //
+    const AdrienChatLink = "https://www.youtube.com/embed/shjCyZuwchA?si=TG0lMgCoy2fTwN-3"; //
+    const AnneChatLink = "https://www.youtube.com/embed/7sbKfKr-w1c?si=akuUHSYWtf28lWbD"; //
+    const AurélieChatLink = "https://www.youtube.com/embed/pIamQ3YJ9IU?si=B6YamXBMBN4u3_M4"; //
+    const LaureChatLink = "https://www.youtube.com/embed/d8h_Gwr6eak?si=R-cvw0vWtJ4Cs30I"; //
+    const LudivineChatLink = "https://www.youtube.com/embed/M0R3-yRvyx0?si=H5fy8V3L41WtlJjY"; //
+    const LudovicChatLink = " https://www.youtube.com/embed/VqaM9iW8dD4?si=zLzfQy8JkdvLtpC3"; //
+    const SéverineChatLink = "https://www.youtube.com/embed/8XtgezkSy9E?si=akkdFcg_pqojP-qX"; //
     const YumiCafetBotLink = "https://chat.csml.dev/s/dbti1brmn89khgwsxonkmku7cpuotgvw"
 
     //Phase 2
