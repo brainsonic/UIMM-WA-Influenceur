@@ -50,7 +50,7 @@ function phase_2()
     const AnneChatLink = "https://www.youtube.com/embed/7sbKfKr-w1c?si=akuUHSYWtf28lWbD"; //
     const AurélieChatLink = "https://www.youtube.com/embed/pIamQ3YJ9IU?si=B6YamXBMBN4u3_M4"; //
     const LaureChatLink = "https://www.youtube.com/embed/d8h_Gwr6eak?si=R-cvw0vWtJ4Cs30I"; //
-    const LudivineChatLink = "https://www.youtube.com/embed/M0R3-yRvyx0?si=H5fy8V3L41WtlJjY"; //
+    const LudivineChatLink = "https://www.youtube.com/embed/ZvNInc2G1Vg?si=Gkg9jhDnwRwL8ItR"; //
     const LudovicChatLink = " https://www.youtube.com/embed/VqaM9iW8dD4?si=zLzfQy8JkdvLtpC3"; //
     const SéverineChatLink = "https://www.youtube.com/embed/8XtgezkSy9E?si=akkdFcg_pqojP-qX"; //
     const YumiCafetBotLink = "https://chat.csml.dev/s/dbti1brmn89khgwsxonkmku7cpuotgvw"
