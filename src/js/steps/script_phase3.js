@@ -319,7 +319,7 @@ function phase_3()
                 trapAppear = true;
                 let trapDoor = new InteractAction(
                     "InteractAction/LabIndustry/TrapDoor",
-                    "Cha alors, tu as réuchi la troisième épreuve. Appuyez chur espace pour ouvrir la trappe. Chalut et bonne route, cha a été un plaisir de vous rencontrer !",
+                    "Ça y est, vous avez réussi la troisième épreuve.  Appuyez sur espace pour ouvrir la trappe. ",
                     [
                         "Vous entrez dans la trappe"
                     ],
@@ -375,7 +375,7 @@ function phase_3()
                 trapAppear = true;
                 let trapDoor = new InteractAction(
                     "InteractAction/LabIndustry/TrapDoor",
-                    "Cha alors, tu as réuchi la troisième épreuve. Appuyez chur espace pour ouvrir la trappe. Chalut et bonne route, cha a été un plaisir de vous rencontrer !",
+                    "Ça y est, vous avez réussi la troisième épreuve.  Appuyez sur espace pour ouvrir la trappe. ",
                     [
                         "Vous entrez dans la trappe"
                     ],
@@ -446,7 +446,7 @@ function phase_3()
                 trapAppear = false;
                 let trapDoor = new InteractAction(
                     "InteractAction/LabIndustry/TrapDoor",
-                    "Cha alors, tu as réuchi la troisième épreuve. Appuyez chur espace pour ouvrir la trappe. Chalut et bonne route, cha a été un plaisir de vous rencontrer !",
+                    "Ça y est, vous avez réussi la troisième épreuve.  Appuyez sur espace pour ouvrir la trappe. ",
                     [
                         "Vous entrez dans la trappe"
                     ],
