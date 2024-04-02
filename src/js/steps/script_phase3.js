@@ -580,7 +580,7 @@ function phase_3()
         "PNJ_YumiStep4",
     );
 
-    let redButtonForm = new PopUpVideoAction(
+    let redButtonForm = new InteractAction(
         "Step4/Last/Redbutton",
         "Appuyez sur espace pour sauver Rayonance !",
         [
@@ -588,14 +588,12 @@ function phase_3()
         "Vous avez réussi.",
         "Rayonance est en sécurité et notre monde est sauvé.",
         "Vous êtes notre héros.",
-        "Pour vous remercier, n'hésitez pas à remplir ce formulaire pour participer à notre jeu concours et tenter de gagner une playstation 5 slim et plein d'autres cadeaux bien stylés.",
         "L'aventure dans le Monde de Yumi ne s'arrête pas là.",
         "Continuez à vous balader dans les différentes salles grâce au transporteur situé dans la prochaine pièce.",
         "Les professionnels de l'industrie qui peuplent ce monde vous attendent pour vous parler de leurs métiers et de leurs projets passionnants !"
         ],
         ["Erreur dialogue"],
         "redButtonTxt",
-        formLink,
         () => {
             createVariableWA("GameFinished");
             WA.room.hideLayer('Step4/Last/ButtonNotPressed');
