@@ -132,7 +132,7 @@ function phase_1()
         "Interactions/Jeune1",
         "Appuyez sur espace pour parler à Antonin !",
         [
-            "Salut, moi c'est \n Killian ! Toi aussi tu es un passionné de l'industrie comme Yumi ! Pour découvrir sur quel super projet j'ai travaillé c'est ici :",
+            "Salut, moi c'est Antonin ! Pour découvrir sur quel super projet j'ai travaillé, c'est ici :",
         ],
         "Jeune1",
         linkVideoJeune1,
@@ -172,7 +172,7 @@ function phase_1()
         "Interactions/Statue",
         "Appuyez sur espace pour lire la pancarte",
         [
-            "Cette tête de tigre géante a été réalisée l'année dernière, en collaboration avec l'influenceur Hihacks et les apprentis chaudronniers du Pôle formation UIMM Nouvelle-Aquitaine",
+            "Cette tête de tigre géante a été réalisée l'année dernière, en collaboration avec l'influenceur HiHacks et les apprentis chaudronniers du Pôle formation UIMM Nouvelle-Aquitaine",
         ],
         "Statue",
         "https://www.youtube.com/embed/APBCjKv6nvA",

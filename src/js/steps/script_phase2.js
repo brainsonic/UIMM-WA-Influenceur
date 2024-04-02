@@ -45,14 +45,14 @@ function phase_2()
 
     //DinningRoom
 
-    const AurélienChatLink = "https://www.youtube.com/embed/n8Pbny-FKiE?si=QgbWrqfXWxQLg-WQ"; //
-    const AdrienChatLink = "https://www.youtube.com/embed/dIKfjI_JKpk?si=J2DGwYvb96RiE9si"; //
-    const AnneChatLink = "https://www.youtube.com/embed/7sbKfKr-w1c?si=akuUHSYWtf28lWbD"; //
-    const AurélieChatLink = "https://www.youtube.com/embed/lLaAlP0h5kg?si=6Mwr2HaDnG9Oo9ME"; //
-    const LaureChatLink = "https://www.youtube.com/embed/BU-dn2CQwnw?si=GYQVov9scTYTkcXd"; //
-    const LudivineChatLink = "https://www.youtube.com/embed/ZvNInc2G1Vg?si=6jNyyB8fz7ExvN8d"; //
-    const LudovicChatLink = " https://www.youtube.com/embed/VqaM9iW8dD4?si=zLzfQy8JkdvLtpC3"; //
-    const SéverineChatLink = "https://www.youtube.com/embed/t9UrYnXyaTw?si=U2NcDc-T9UNT0wOq"; //
+    const AurélienChatLink = "https://chat.csml.dev/s/mdpagk2kgwff7cjjjlqxfbkmtaegcc8z"; //
+    const AdrienChatLink = "https://chat.csml.dev/s/eimrkwagnizsgkt2exfyzpqikxvsiqok"; //
+    const AnneChatLink = "https://chat.csml.dev/s/urfgrirj0fzedjnkgdtc8pndlybbirja"; //
+    const AurélieChatLink = "https://chat.csml.dev/s/nzulmz6enql33he6f7ghqv6vmw9iyqai"; //
+    const LaureChatLink = "https://chat.csml.dev/s/cjue6rorfvlktkzitr71bdjrxchv8rg9"; //
+    const LudivineChatLink = "https://chat.csml.dev/s/oegmltlziitgfljossd3gdvstkoggde7"; //
+    const LudovicChatLink = " https://chat.csml.dev/s/5swwzc2ho5ldzer5orwie8uksvsymrjj"; //
+    const SéverineChatLink = "https://chat.csml.dev/s/iofny0f6wdowp8avygfofsqg5lm5hmx8"; //
     const YumiCafetBotLink = "https://chat.csml.dev/s/dbti1brmn89khgwsxonkmku7cpuotgvw"
 
     //Phase 2
@@ -149,8 +149,9 @@ function phase_2()
         "Interactions/MetierRoom/Melody",
         "Appuyez sur espace pour parler à Mélody",
         [
-            "Salut, moi c'est Mélody ! Au quotidien, je suis très rigoureuse, minutieuse même. C'est important, car je suis responsable de la conformité de pièces complexes !",
-            "Et dans le nucléaire, on ne rigole pas avec la sécurité. Laissez-moi vous en dire plus !",
+            "Salut, moi c'est Mélody ! Au quotidien, je suis très rigoureuse, minutieuse même.",
+            "C'est important car je suis responsable de la conformité de pièces complexes ! Et dans le nucléaire, on ne rigole pas avec la sécurité.",
+            "Laissez-moi vous en dire plus !",
         ],
         "MelodyText",
         MelodyVideoLink,
@@ -186,7 +187,7 @@ function phase_2()
         "Appuyez sur espace pour parler à Anaïs !",
         [
         "Salut, moi c’est Anaïs et je suis technicienne méthodes. Si vous ne savez pas en quoi ça consiste : venez, je vous montre !",
-        "Mais avant de vous en dire plus, si vous cherchez quelqu'un avec une clé, je l'ai vu partir vers la cafet des pros, il a une chemise bleue. ",
+        "! Mais avant de vous en dire plus, si vous cherchez quelqu'un avec une clé, je l'ai vu partir vers la cafet des pros, il a une chemise bleue. ",
         ],
         "Anais",
         anaisVideoLink,
@@ -428,22 +429,23 @@ function phase_2()
         "Interactions/DinningRoom/Adrien",
         "Appuyez sur espace pour découvrir Adrien !",
         [
-            "Non, le chaudronnier ne fait pas de magie.",
-            "Ou peut-être que si finalement.",
-            "La réponse avec Adrien."
+        "Non, le chaudronnier ne fait pas de magie.",
+        "Ou peut-être que si finalement.",
+        "La réponse avec Adrien."
         ],
         "AdrienText",
         AdrienChatLink,
         "interact",
         "PNJ",
         "PNJ_AdrienDinningRoom",
+        "right",
     );
 
     let Aurélie = new PopUpVideo(
         "Interactions/DinningRoom/Aurelie",
         "Appuyez sur espace pour découvrir Aurélie !",
         [
-            "Connaissez-vous \n l'automatisme ?",
+            "Connaissez-vous l'automatisme ?",
             "Aurélie vous explique tout.",
             "Suivez le guide."
         ],
@@ -452,45 +454,54 @@ function phase_2()
         "interact",
         "PNJ",
         "PNJ_AurélieDinningRoom",
+        "right",
     );
 
     let Anne = new PopUpVideo(
         "Interactions/DinningRoom/Anne",
         "Appuyez sur espace pour découvrir Anne !",
+        [
+        "Anne est technicienne QHSE.",
+        "Quésaco ?",
+        "Elle vous dit tout."
+        ],
+        "AnneText",
         AnneChatLink,
-        "center",
         "interact",
         "PNJ",
         "PNJ_AnneDinningRoom",
+        "right",
     );
 
     let Séverine = new PopUpVideo(
         "Interactions/DinningRoom/Séverine",
         "Appuyez sur espace pour discuter avec Séverine !",
         [
-            "Je dessine des compresseurs, des condenseurs, des détendeurs, des évaporateurs…",
-            "Je suis dessinatrice industrielle.",
-            "Venez découvrir mon métier."
+        "Je dessine des compresseurs, des condenseurs, des détendeurs, des évaporateurs…",
+        "Je suis dessinatrice industrielle.",
+        "Venez découvrir mon métier."
         ],
-        "SeverineText",
+        "SéverineText",
         SéverineChatLink,
         "interact",
         "PNJ",
         "PNJ_SéverineDinningRoom",
+        "right",
     );
 
     let Ludovic = new PopUpVideo(
         "Interactions/DinningRoom/Ludovic",
         "Appuyez sur espace pour découvrir Ludovic !",
         [
-            "Savez-vous ce qu'est l'usinage ?",
-            "Pour en savoir plus, discutez avec Yumi et Ludovic !"
+        "Savez-vous ce qu'est l'usinage ?",
+        "Pour en savoir plus, discutez avec Yumi et Ludovic !"
         ],
         "LudovicText",
         LudovicChatLink,
         "interact",
         "PNJ",
         "PNJ_LudovicDinningRoom",
+        "right",
     );
 
     let Laure = new PopUpVideo(
@@ -505,6 +516,7 @@ function phase_2()
         "interact",
         "PNJ",
         "PNJ_LaureDinningRoom",
+        "right",
     );
 
     let Aurélien = new PopUpVideo(
@@ -521,6 +533,7 @@ function phase_2()
         "interact",
         "PNJ",
         "PNJ_AurélienDinningRoom",
+        "right"
     );
 
     let Ludivine = new PopUpVideo(
@@ -535,6 +548,7 @@ function phase_2()
         "interact",
         "PNJ",
         "PNJ_LudivineDinningRoom",
+        "right"
     );
 
     let YumiCafet = new Modal(

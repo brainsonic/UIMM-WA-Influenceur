@@ -15,9 +15,23 @@ const textOutGate = "Vous êtes sorti de la gare";
 document.addEventListener('DOMContentLoaded', () => {
 
   WA.onInit().then(() => {
+    // désactiver les proximity meeting parceque peu utile
+    console.log("DEBUT :",WA.player.state['TutorialRead']);
+    if (WA.player.state['TutorialRead'] != true)
+    {
+       WA.ui.modal.openModal({
+         title: "Tutorial",
+         src: tutorialLink,
+         allow: "fullscreen; clipboard-read; clipboard-write",
+         allowApi: !0,
+         position: "right",
+       });
+    }
     WA.controls.disablePlayerProximityMeeting();
     WA.controls.disableMicrophone();
     WA.controls.disableWebcam();
+    createVariableWA('TutorialRead');
+    console.log("APRES :",WA.player.state['TutorialRead']);
   });
 
 
@@ -33,6 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 
+  //BUTTON TUTORIAL
+  WA.ui.actionBar.addButton({
+    id: 'tutorial-btn',
+    label: 'Tutoriel',
+    callback: (event) => {
+      tutorial();
+    }
+  })
+
   phase_1();
   phase_2();
   phase_3();
@@ -40,4 +63,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //Log to check in the WA that the script has passed
-console.log('VERSION 11');
+console.log('VERSION 9');

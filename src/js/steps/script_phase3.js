@@ -50,7 +50,7 @@ function phase_3()
         [
             "Toi aussi, tu dois sauver Rayonance ?!",
             "Pour le moment, pas de Technophoby à l'horizon.",
-            "Mais il y a urgence, il faut trouver un code. Tu sais, celui de la porte rouge dans le lab de Yumi.",
+            "Mais y a urgence, il faut trouver un code.",
         ],
         "MarleneText",
         "interact",
@@ -96,7 +96,7 @@ function phase_3()
     let cardAccess = new ItemPickUpOnCondition(
         "Items/TrappedRoom/CardAccess",
         "Appuyez sur espace pour ramasser le badge d'accès",
-        ["Vous avez récupéré le badge d'accès"],
+        ["Vous avez récuperé le badge d'accès"],
         ["Vous devez d'abord parler à Yumi avant de le ramasser"],
         "cardAccessText",
         "cardAccess",
@@ -122,6 +122,7 @@ function phase_3()
         [
         "Bonjour, dépêchez-vous les saboteurs sont à votre poursuite !",
         "Pour sortir d'ici, vous devez récupérer 4 indices éparpillés dans le labo.",
+        "Mais, la mission se complique. Car un des messages est bloqué dans une caisse. Il faudra d'abord trouver la clé pour l'ouvrir.",
         "Tous les indices forment un mot qui vous donnera une indication pour trouver une trappe secrète. Celle-ci donnera accès à un sous-sol.",
         "Dans cet atelier, vous trouverez un transporteur pour vous échapper.",
         "Allez-y maintenant, ils arrivent."
@@ -152,7 +153,7 @@ function phase_3()
         "InteractAction/TrappedRoom/FinalDoor",
         "Appuyez sur espace pour insérer le badge d'accès",
         ["La porte est ouverte"],
-        ["Vous devez avoir le badge d'accès et avoir parlé à Yumi"],
+        ["Vous devez avoir le badge d'accès et avoir parler à Yumi"],
         'doorTrappedRoomText',
         () => {
         if (WA.player.state["cardAccess"] != null && WA.player.state["cardAccess"] == true &&
@@ -374,7 +375,7 @@ function phase_3()
                 trapAppear = true;
                 let trapDoor = new InteractAction(
                     "InteractAction/LabIndustry/TrapDoor",
-                    "Ça y est, vous avez réussi la troisième épreuve.  Appuyez sur espace pour ouvrir la trappe. ",
+                    "Cha alors, tu as réuchi la troisième épreuve. Appuyez chur espace pour ouvrir la trappe. Chalut et bonne route, cha a été un plaisir de vous rencontrer !",
                     [
                         "Vous entrez dans la trappe"
                     ],
@@ -442,10 +443,10 @@ function phase_3()
                     && WA.player.state["binHint"] != null && WA.player.state["binHint"] == true
                     && trapAppear == false)
             {
-                trapAppear = true;
+                trapAppear = false;
                 let trapDoor = new InteractAction(
                     "InteractAction/LabIndustry/TrapDoor",
-                    "Ça y est, vous avez réussi la troisième épreuve.  Appuyez sur espace pour ouvrir la trappe. ",
+                    "Cha alors, tu as réuchi la troisième épreuve. Appuyez chur espace pour ouvrir la trappe. Chalut et bonne route, cha a été un plaisir de vous rencontrer !",
                     [
                         "Vous entrez dans la trappe"
                     ],
@@ -627,7 +628,7 @@ function phase_3()
         "Appuyez sur espace pour lire l'affiche",
         [
         "Infos, témoignages, nouveautés, toutes nos actus sont sur Instagram.",
-        "Suivez nous sur instagram : @uimm.lafabriquedelavenir"
+        "Suivez-nous ! https://www.instagram.com/uimm.lafabriquedelavenir/"
         ],
         "UIMMInstaText",
         "interact",
@@ -679,6 +680,7 @@ function phase_3()
         "Appuyez sur espace pour lire la pancarte",
         [
         'Vous êtes à la recherche d\'un stage, d\'une alternance ou d\'un emploi ? De nombreuses opportunités vous attendent sur le site "L\'Industrie Recrute" !',
+        "N'hésitez plus et rejoignez-nous."
         ],
         "UIMMRecruteText",
         UIMMRecruteLink,
@@ -710,7 +712,7 @@ function phase_3()
         }
         else
         {
-            const textEnterFinalRoom = "Nous sommes les Technophoby. Nous voulons conserver le monde tel qu'il est aujourd'hui sans Rayonance. Ne vous approchez pas de ce bouton. Si vous appuyez, le Monde de Yumi aura accès à l'énergie infinie."
+            const textEnterFinalRoom = "Nous sommes les Technophoby. Nous voulons conserver le monde tel qu'il est aujourd'hui sans Rayonance. Ne vous approchez pas de ce bouton. Si vous appuyez, le Monde de Yumi sera sous le contrôle de l'énergie infinie."
             let popupOpened = false
             WA.room.onEnterLayer("Interactions/FinalRoom/EnterFinalRoom").subscribe(() => {
                 if (!popupOpened) {
@@ -808,27 +810,24 @@ function phase_3()
     onTpCondition('Step4/Last/TpBack', '#start', () => { return true }, 'tpBackFinal');
 
     /* ----- Step 4 bis ----- */
-    WA.createVariableWA("allowOpenChest");
-    WA.player.state["allowOpenChest"] = true;
-    
-    
+
     let Anton = new InteractAction(
         "Step4bis/Anton",
         "Appuyez sur espace pour parler à Anton !",
         [
-            "Vous avez retrouvé ma clé.",
-            "Vous avez ma gratitude éternelle !",
-            "Je vous laisse ouvrir mon coffre pour récupérer ce que je craignais tant de perdre",
-            "En guise de gratitude, voici une mystérieuse séquence, je ne suis pas sûr de sa signification, mais j'ai le sentiment que c'est très important pour vous.",
-            "Concervez-la ou mémorisez-la, cela pourra vous être utile.",
+        "Vous avez retrouvé ma clé.",
+        "Vous avez ma gratitude éternelle !",
+        "Voilà ce que je craignais tant de perdre.",
+        "En guise de gratitude, voici une mystérieuse séquence, je ne suis pas sûr de sa signification, mais j'ai le sentiment que c'est très important pour vous.",
+        "Conservez-la ou mémorisez-la, cela pourra vous être utile.",
         ],
         [
-            "Ah, vous voilà enfin !",
-            "Je suis dans une situation désespérée...",
-            "Un habitant, avec qui j'ai eu une dispute récente, a volé la clé de mon coffre par vengeance.",
-            "Le contenu de ce coffre est essentiel, il ne doit pas tomber entre de mauvaises mains.",
-            "Je vous en prie, pouvez-vous m'aider à retrouver la clé et me la ramener ?",
-            "Je ne peux pas quitter le coffre, mais je suis certain que les habitants du Monde de Yumi pourront vous aider à retrouver le voleur."
+        "Ah, vous voilà enfin !",
+        "Je suis dans une situation désespérée...",
+        "Un habitant, avec qui j'ai eu une dispute récente, a volé la clé de mon coffre par vengeance.",
+        "Le contenu de ce coffre est essentiel, il ne doit pas tomber entre de mauvaises mains.",
+        "Je vous en prie, pouvez-vous m'aider à retrouver la clé et me la ramener ?",
+        "Je ne peux pas quitter le coffre, mais je suis certain que les habitants du Monde de Yumi pourront vous aider à retrouver le voleur."
         ],
         "AntonText",
         () => {
@@ -839,6 +838,7 @@ function phase_3()
             return true;
         }
         else {
+            createVariableWA("startSideQuestStep4");
             WA.player.state["startSideQuestStep4"] = true;
             return false;
         }
@@ -849,12 +849,12 @@ function phase_3()
     );
 
     let chestDidier = new InteractAction(
-        "Step4bis/ChestDidier2",
+        "Step4bis/ChestDidier",
         "Appuyez sur espace pour ouvrir le coffre !",
         [
         "Vous avez récupéré une mystérieuse séquence !",
-        'Gardez-la précieusement, elle vous servira pour les prochaines quêtes, vous la retrouverez en cliquant sur "Séquence secrète" en bas de \nl\'écran !'
-        ],f
+        "Gardez-la précieusement, elle vous servira pour les prochaines quêtes"
+        ],
         [
             "Vous avez besoin d'une clé pour ouvrir ce coffre !"
         ],
@@ -862,6 +862,7 @@ function phase_3()
         () => {
         if (WA.player.state["allowOpenChest"] == true ) {
             createVariableWA("sequenceObtained");
+            WA.player.state["sequenceObtained"] = true;
             return true;
         }
         else {
@@ -891,10 +892,8 @@ function phase_3()
         ],
         "ArnaudText",
         () => {
-        if (WA.player.state["arnaudRevealed"] != true) {
-            
+        if (WA.player.state["startSideQuestStep4"] != null && WA.player.state["startSideQuestStep4"] == true) {
             //Variable pour revenir au dialogue de départ quand arnaud a été démasqué
-            createVariableWA('arnaudRevealed');
             createVariableWA("chestDidierKey");
             return true;
         }
@@ -912,7 +911,7 @@ function phase_3()
         {
         WA.ui.actionBar.addButton({
             id: 'sequence-btn',
-            label: 'Séquence Secrète',
+            label: 'Carte Secrète',
             callback: (event) => {
             WA.player.state['sequenceButtonDisplayed'] = true;
             WA.ui.modal.openModal({
@@ -933,7 +932,7 @@ function phase_3()
         {
             WA.ui.actionBar.addButton({
             id: 'sequence-btn',
-            label: 'Séquence Secrète',
+            label: 'Carte Secrète',
             callback: (event) => {
                 createVariableWA("sequenceButtonDisplayed");
                 WA.ui.modal.openModal({
@@ -948,7 +947,6 @@ function phase_3()
         }
         })
     });
-    console.log("3e script chargé");
 }
 
 export {
