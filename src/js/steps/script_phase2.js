@@ -187,7 +187,7 @@ function phase_2()
         "Appuyez sur espace pour parler à Anaïs !",
         [
         "Salut, moi c’est Anaïs et je suis technicienne méthodes. Si vous ne savez pas en quoi ça consiste : venez, je vous montre !",
-        "! Mais avant de vous en dire plus, si vous cherchez quelqu'un avec une clé, je l'ai vu partir vers la cafet des pros, il a une chemise bleue. ",
+        "Mais avant de vous en dire plus, si vous cherchez quelqu'un avec une clé, je l'ai vu partir vers la cafet des pros, il a une chemise bleue. ",
         ],
         "Anais",
         anaisVideoLink,
