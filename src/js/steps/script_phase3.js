@@ -597,18 +597,17 @@ function phase_3()
         "redButtonTxt",
         formLink,
         () => {
-        createVariableWA("GameFinished");
-        WA.room.hideLayer('Step4/Last/ButtonNotPressed');
-        WA.room.hideLayer('Step4/Last/ButtonNotPressedAnimation');
-        return true;
+            createVariableWA("GameFinished");
+            WA.room.hideLayer('Step4/Last/ButtonNotPressed');
+            WA.room.hideLayer('Step4/Last/ButtonNotPressedAnimation');
+            return true;
         },
-        "right",
         "interact",
         "Form",
         "Formulaire_final"
     );
 
-    let technophobys = new Dialog(
+    /*let technophobys = new Dialog(
         'Step4/Last/ButtonNotPressed',
         "Appuyez sur espace pour parler aux Technophoby",
         [
@@ -621,7 +620,7 @@ function phase_3()
         "interact",
         "PNJ",
         "PNJ_Technophoby"
-    );
+    );*/
     /**---- FinalRoom ----**/
 
     let WorldUIMMYTB = new PopUpVideo(
