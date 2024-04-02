@@ -607,7 +607,7 @@ function phase_3()
         "Formulaire_final"
     );
 
-    /*let technophobys = new Dialog(
+    let technophobys = new Dialog(
         'Step4/Last/ButtonNotPressed',
         "Appuyez sur espace pour parler aux Technophoby",
         [
@@ -620,7 +620,7 @@ function phase_3()
         "interact",
         "PNJ",
         "PNJ_Technophoby"
-    );*/
+    );
     /**---- FinalRoom ----**/
 
     let WorldUIMMYTB = new PopUpVideo(
