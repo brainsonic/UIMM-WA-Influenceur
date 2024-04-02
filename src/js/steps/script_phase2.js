@@ -473,7 +473,7 @@ function phase_2()
     );
 
     let Séverine = new PopUpVideo(
-        "Interactions/DinningRoom/Séverine",
+        "Interactions/DinningRoom/Severine",
         "Appuyez sur espace pour découvrir Séverine !",
         [
             "Je dessine des compresseurs, des condenseurs, des détendeurs, des évaporateurs…",
