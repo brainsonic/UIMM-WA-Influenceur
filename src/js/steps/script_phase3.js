@@ -350,9 +350,6 @@ function phase_3()
                     "Object_trapDoor"
                 );
             }
-            if(trapAppear == true){
-                WA.room.showLayer('TrapLayer');
-            }
             return true
         },
         "interract",
@@ -408,9 +405,6 @@ function phase_3()
                     "InteractAction",
                     "Object_trapDoor"
                 );
-            }
-            if(trapAppear == true){
-                WA.room.showLayer('TrapLayer');
             }
             return true;
         },
@@ -483,9 +477,6 @@ function phase_3()
                     "Object_trapDoor"
                 );
             }
-            if(trapAppear == true){
-                WA.room.showLayer('TrapLayer');
-            }
             return true;
         },
         "interract",
@@ -542,9 +533,6 @@ function phase_3()
                         "InteractAction",
                         "Object_trapDoor"
                     );
-                }
-                if(trapAppear == true){
-                    WA.room.showLayer('TrapLayer');
                 }
                 return true
         },
@@ -820,24 +808,27 @@ function phase_3()
     onTpCondition('Step4/Last/TpBack', '#start', () => { return true }, 'tpBackFinal');
 
     /* ----- Step 4 bis ----- */
-
+    WA.createVariableWA("allowOpenChest");
+    WA.player.state["allowOpenChest"] = true;
+    
+    
     let Anton = new InteractAction(
         "Step4bis/Anton",
         "Appuyez sur espace pour parler à Anton !",
         [
-        "Vous avez retrouvé ma clé.",
-        "Vous avez ma gratitude éternelle !",
-        "Je vous laisse ouvrir mon coffre pour récupérer ce que je craignais tant de perdre",
-        "En guise de gratitude, voici une mystérieuse séquence, je ne suis pas sûr de sa signification, mais j'ai le sentiment que c'est très important pour vous.",
-        "Conservez-la ou mémorisez-la, cela pourra vous être utile.",
+            "Vous avez retrouvé ma clé.",
+            "Vous avez ma gratitude éternelle !",
+            "Je vous laisse ouvrir mon coffre pour récupérer ce que je craignais tant de perdre",
+            "En guise de gratitude, voici une mystérieuse séquence, je ne suis pas sûr de sa signification, mais j'ai le sentiment que c'est très important pour vous.",
+            "Concervez-la ou mémorisez-la, cela pourra vous être utile.",
         ],
         [
-        "Ah, vous voilà enfin !",
-        "Je suis dans une situation désespérée...",
-        "Un habitant, avec qui j'ai eu une dispute récente, a volé la clé de mon coffre par vengeance.",
-        "Le contenu de ce coffre est essentiel, il ne doit pas tomber entre de mauvaises mains.",
-        "Je vous en prie, pouvez-vous m'aider à retrouver la clé et me la ramener ?",
-        "Je ne peux pas quitter le coffre, mais je suis certain que les habitants du Monde de Yumi pourront vous aider à retrouver le voleur."
+            "Ah, vous voilà enfin !",
+            "Je suis dans une situation désespérée...",
+            "Un habitant, avec qui j'ai eu une dispute récente, a volé la clé de mon coffre par vengeance.",
+            "Le contenu de ce coffre est essentiel, il ne doit pas tomber entre de mauvaises mains.",
+            "Je vous en prie, pouvez-vous m'aider à retrouver la clé et me la ramener ?",
+            "Je ne peux pas quitter le coffre, mais je suis certain que les habitants du Monde de Yumi pourront vous aider à retrouver le voleur."
         ],
         "AntonText",
         () => {
@@ -848,7 +839,6 @@ function phase_3()
             return true;
         }
         else {
-            createVariableWA("startSideQuestStep4");
             WA.player.state["startSideQuestStep4"] = true;
             return false;
         }
@@ -859,7 +849,7 @@ function phase_3()
     );
 
     let chestDidier = new InteractAction(
-        "Step4bis/ChestDidier",
+        "Step4bis/ChestDidier2",
         "Appuyez sur espace pour ouvrir le coffre !",
         [
         "Vous avez récupéré une mystérieuse séquence !",
@@ -872,7 +862,6 @@ function phase_3()
         () => {
         if (WA.player.state["allowOpenChest"] == true ) {
             createVariableWA("sequenceObtained");
-            WA.player.state["sequenceObtained"] = true;
             return true;
         }
         else {
@@ -902,8 +891,10 @@ function phase_3()
         ],
         "ArnaudText",
         () => {
-        if (WA.player.state["startSideQuestStep4"] != null && WA.player.state["startSideQuestStep4"] == true) {
+        if (WA.player.state["arnaudRevealed"] != true) {
+            
             //Variable pour revenir au dialogue de départ quand arnaud a été démasqué
+            createVariableWA('arnaudRevealed');
             createVariableWA("chestDidierKey");
             return true;
         }
@@ -957,6 +948,7 @@ function phase_3()
         }
         })
     });
+    console.log("3e script chargé");
 }
 
 export {
