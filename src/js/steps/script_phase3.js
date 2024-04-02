@@ -600,6 +600,7 @@ function phase_3()
         () => {
         createVariableWA("GameFinished");
         WA.room.hideLayer('Step4/Last/ButtonNotPressed');
+        WA.room.hideLayer('Step4/Last/ButtonNotPressedAnimation');
         return true;
         },
         "right",
@@ -608,6 +609,20 @@ function phase_3()
         "Formulaire_final"
     );
 
+    let technophobys = new Dialog(
+        'Step4/Last/ButtonNotPressed',
+        "Appuyez sur espace pour parler aux technophoby",
+        [
+            "Nous sommes les Technophoby.",
+            "Nous voulons conserver le monde tel qu'il est aujourd'hui sans Rayonance.",
+            "Ne vous approchez pas de ce bouton.",
+            "Si vous appuyez, le Monde de Yumi sera sous le contrôle de l'énergie infinie."
+        ],
+        "TechnophobysText",
+        "interact",
+        "PNJ",
+        "PNJ_Technophoby"
+    );
     /**---- FinalRoom ----**/
 
     let WorldUIMMYTB = new PopUpVideo(
@@ -692,8 +707,8 @@ function phase_3()
     let TeleporteurFinalRoom = new InteractAction(
         "Interactions/FinalRoom/TeleporteurFinalRoom",
         "Appuyez sur espace pour vous téléporter ! Merci encore pour ton aide, tu as sauvé le Monde de Yumi. Si tu prends ce transporteur, tu retourneras dans le hub des métiers. Ce sera l'occasion pour toi de découvrir des femmes et des hommes passionnants qui travaillent dans l'industrie.",
-        [],
-        [],
+        ["Vous avez été téléporté."],
+        ["Vous avez été téléporté."],
         "TeleporteurFinalRoomText",
         () => {
         WA.nav.goToRoom("#tpShowRoom");
@@ -709,29 +724,7 @@ function phase_3()
         if (WA.player.state["GameFinished"] == true)
         {
             WA.room.hideLayer('Step4/Last/ButtonNotPressed');
-        }
-        else
-        {
-            const textEnterFinalRoom = "Nous sommes les Technophoby. Nous voulons conserver le monde tel qu'il est aujourd'hui sans Rayonance. Ne vous approchez pas de ce bouton. Si vous appuyez, le Monde de Yumi sera sous le contrôle de l'énergie infinie."
-            let popupOpened = false
-            WA.room.onEnterLayer("Interactions/FinalRoom/EnterFinalRoom").subscribe(() => {
-                if (!popupOpened) {
-                    let popupFinalRoom = WA.ui.openPopup("EnterFinalRoomText", textEnterFinalRoom, [
-                        {
-                            label: "Fermer",
-                            className: "primary",
-                            callback: (popup) => {
-                                popup.close()
-                                popupOpened = true
-                            }
-                        }
-                    ])
-                    WA.room.onLeaveLayer("Interactions/FinalRoom/EnterFinalRoom").subscribe(() => {
-                        popupOpened = true
-                        popupFinalRoom.close()
-                    })
-                }
-            })
+            WA.room.hideLayer('Step4/Last/ButtonNotPressedAnimation');
 
         }
     });
@@ -911,7 +904,7 @@ function phase_3()
         {
         WA.ui.actionBar.addButton({
             id: 'sequence-btn',
-            label: 'Carte Secrète',
+            label: 'Séquence Secrète',
             callback: (event) => {
             WA.player.state['sequenceButtonDisplayed'] = true;
             WA.ui.modal.openModal({
@@ -932,7 +925,7 @@ function phase_3()
         {
             WA.ui.actionBar.addButton({
             id: 'sequence-btn',
-            label: 'Carte Secrète',
+            label: 'Séquence Secrète',
             callback: (event) => {
                 createVariableWA("sequenceButtonDisplayed");
                 WA.ui.modal.openModal({
