@@ -1,5 +1,5 @@
 import {} from "https://unpkg.com/@workadventure/scripting-api-extra@^1";
-import { Interaction, InteractAction, Dialog, Modal, ModalAction, PopUpVideo, ItemOnLayer, ItemPickUpOnCondition, PopUpVideoAction, onTpCondition, tutorial, onEnterAuthorization, getVariableOnZone, createVariableWA, trapLayer} from '../class';
+import { Interaction, InteractAction, Dialog, Modal, ModalAction, PopUpVideo, ItemOnLayer, ItemPickUpOnCondition, PopUpVideoAction, onTpCondition, tutorial, onEnterAuthorization, getVariableOnZone, createVariableWA, trapLayer, dialogVisible} from '../class';
 
 function phase_3()
 {
@@ -590,7 +590,7 @@ function phase_3()
         "Vous êtes notre héros.",
         "L'aventure dans le Monde de Yumi ne s'arrête pas là.",
         "Continuez à vous balader dans les différentes salles grâce au transporteur situé dans la prochaine pièce.",
-        "Les professionnels de l'industrie qui peuplent ce monde vous attendent pour vous parler de leurs métiers et de leurs projets passionnants !"
+        "Les professionnels de l\'industrie qui peuplent ce monde vous attendent pour vous parler de leurs métiers et de leurs projets passionnants !"
         ],
         ["Erreur dialogue"],
         "redButtonTxt",
@@ -701,7 +701,7 @@ function phase_3()
 
     let TeleporteurFinalRoom = new InteractAction(
         "Interactions/FinalRoom/TeleporteurFinalRoom",
-        "Appuyez sur espace pour vous téléporter ! Merci encore pour ton aide, tu as sauvé le Monde de Yumi. Si tu prends ce transporteur, tu retourneras dans le hub des métiers. Ce sera l'occasion pour toi de découvrir des femmes et des hommes passionnants qui travaillent dans l'industrie.",
+        "Appuyez sur espace pour vous téléporter ! Merci encore pour votre aide, vous avez sauvé le Monde de Yumi. Si vous prenez ce transporteur, vous irez directement dans le hub des métiers. Ce sera l'occasion pour vous de décrouvrir des femmes et des hommes passionants qui travailent dans l'industrie.",
         ["Vous avez été téléporté."],
         ["Vous avez été téléporté."],
         "TeleporteurFinalRoomText",

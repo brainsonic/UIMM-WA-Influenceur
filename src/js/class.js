@@ -9,6 +9,20 @@ import {} from "https://unpkg.com/@workadventure/scripting-api-extra@^1";
 // type_tracker : string : type du tracker (bot, video, formulaire, ....)
 // name_tracker : string : nom du tracker - permet de chercher précisément une interaction si besoin
 const url_api = "https://uimm-trackers-api-stg-0b60361e2cd1.herokuapp.com/api/tracker_events";
+
+
+async function getLayerByName(targetName) {
+  const map = await WA.room.getTiledMap();
+  return findLayerByName(map.layers[8].layers[7].layers[3]);
+}
+
+async function findLayerByName(param) {
+  console.log(param);
+  // Si aucune couche avec le nom recherché n'est trouvée, retournez null
+  return param;
+}
+
+
 class Interaction {
     constructor(_layer, _message, _category_tracker, _type_tracker, _name_tracker) {
       //setup des variables
@@ -599,6 +613,155 @@ function trapLayer(_layer, _reset_layer)
   });
 }
 
+
+class Interaction2 {
+  constructor(_layer, _message, _category_tracker, _type_tracker, _name_tracker) {
+    //setup des variables
+    this.layer = _layer;
+    this.message = _message;
+    this.category_tracker = _category_tracker;
+    this.type_tracker = _type_tracker;
+    this.name_tracker = _name_tracker;
+    //setup des listeners WA pour les layers prévus
+    this.setup();
+
+  }
+
+  async setup() {
+    // Définition de la fonction de rappel en dehors de la fonction setup
+    const enterLayerCallback = async () => {
+        // Utilisation de await à l'intérieur de la fonction de rappel
+        var buttonNotPressedLayer = await getLayerByName(this.layer);
+        console.log(buttonNotPressedLayer)
+        if (buttonNotPressedLayer && buttonNotPressedLayer.visible) {
+            this.triggerMessage = WA.ui.displayActionMessage({
+                message: this.message,
+                callback: () => {
+                    this.interact();
+                },
+            });
+        }
+        console.log("plooop");
+    };
+
+    // Mise en place du listener d'entrée sur le layer avec la fonction de rappel
+    WA.room.onEnterLayer(this.layer).subscribe(enterLayerCallback);
+
+    // Mise en place du listener de sortie, qui lance la fonction de sortie pour fermer le message d'interaction s'il est ouvert
+    WA.room.onLeaveLayer(this.layer).subscribe(() => {
+        if (this.triggerMessage !== undefined) this.close();
+    });
+  }
+
+  //Fonction pour track les interactions
+  track() {
+    /* ---- API Tracker Stat ---- */
+
+    const data = {
+      type: this.type_tracker,
+      category: this.category_tracker,
+      name: this.name_tracker,
+    }
+    const request = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/ld+json'
+      },
+      body: JSON.stringify(data)
+    }
+
+    fetch(url_api, request)
+      .then(response => {
+        if(!response.ok) {
+          console.log('Erreur tracker');
+          throw new Error('Network response was not OK')
+        }
+        return response.json();
+      })
+      .then(data => {
+
+        //console.log('Response :', data);
+
+      })
+      .catch(error => {
+        console.error('Error:', error)
+      }) 
+  }
+  //fonction d'intéraction, à override
+  interact() {
+    // override this
+    this.track();
+
+  }
+  //fonction de sortie
+  close() {
+    if (this.triggerMessage !== undefined) this.triggerMessage.remove();
+    // lance la fonction exit, à override selon les besoins des sous-classes
+    this.exit();
+  }
+  //fonction de sortie, à override selon les besoins des sous-classes
+  exit() {
+    // override this
+  }
+}
+// class Dialog
+  // layer : string : nom de la layer sur laquelle l'interaction est possible
+  // message : string : message affiché au joueur pour l'inviter à intéragir
+  // dialog : string[] : tableau de string, chaque string est un nouveau popup
+  // object : string : nom de l'objet sur lequel le popup s'ouvre
+  class dialogVisible extends Interaction2 {
+    constructor(_layer, _message, _dialog, _object, _category_tracker, _type_tracker, _name_tracker) {
+      super(_layer, _message, _category_tracker, _type_tracker, _name_tracker);
+      this.layer = _layer;
+      this.object = _object;
+      this.dialog = _dialog;
+      this.state = 0;
+    }
+    //fonction d'intéraction, ouvre le popup
+    interact() {
+        this.track();
+        this.open();
+        
+  
+    }
+    //fonction d'ouverture du popup en fonction du state du dialogue
+    open() {
+      // ouvre le popup avec le texte correspondant au state actuel
+      // bouton change de label si c'est le dernier popup
+      this.currentState = WA.ui.openPopup(this.object, this.dialog[this.state], [
+        {
+          label: this.state < this.dialog.length - 1 ? "Suivant" : "Fermer",
+          className: "primary",
+          callback: (popup) => {
+            // appel de la fonction next qui gère le changement de state et d'autres choses
+            this.next();
+          },
+        },
+      ]);
+      this.finished = false;
+    }
+    next() {
+      this.state++;
+      // ferme le popup actuel, set en undefined pour éviter les bugs
+      if (this.currentState !== undefined)
+      {
+        this.currentState.close();
+        this.currentState = undefined;
+      }
+      // check si fini, sinon ouvre le popup suivant
+      if (this.state >= this.dialog.length) {
+        this.finished = true;
+        this.state = 0;
+      } else this.open();
+    }
+    exit() {
+      if (!this.finished && this.currentState !== undefined)
+        this.currentState.close();
+      this.currentState = undefined;
+      this.state = 0;
+    }
+  }
+
 export {
     Interaction,
     InteractAction,
@@ -615,5 +778,6 @@ export {
     getVariableOnZone,
     createVariableWA,
     trapLayer,
+    dialogVisible,
 };
   // END CLASS 
