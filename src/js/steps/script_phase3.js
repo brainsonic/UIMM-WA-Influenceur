@@ -29,6 +29,8 @@ function phase_3()
     const srcSequenceTPs = "Média.jpeg";
     //ParkOutside (Out of the gate)
 
+   
+
     let chat = new Dialog(
         "Interactions/ParkOutside/chat",
         "Appuyez sur espace pour parler au chat !",
@@ -598,6 +600,7 @@ function phase_3()
             createVariableWA("GameFinished");
             WA.room.hideLayer('Step4/Last/ButtonNotPressed');
             WA.room.hideLayer('Step4/Last/ButtonNotPressedAnimation');
+            WA.state.saveVariable("technophobyVisible", false)
             return true;
         },
         "interact",
@@ -605,7 +608,7 @@ function phase_3()
         "Formulaire_final"
     );
 
-    let technophobys = new Dialog(
+    let technophobys = new dialogVisible(
         'Step4/Last/ButtonNotPressed',
         "Appuyez sur espace pour parler aux Technophoby",
         [

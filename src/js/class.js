@@ -615,6 +615,7 @@ function trapLayer(_layer, _reset_layer)
 
 
 class Interaction2 {
+  
   constructor(_layer, _message, _category_tracker, _type_tracker, _name_tracker) {
     //setup des variables
     this.layer = _layer;
@@ -626,30 +627,25 @@ class Interaction2 {
     this.setup();
 
   }
+  setup() {
+    //listener d'entrée sur le layer, créé le message d'interaction
+    
+    WA.state.saveVariable("technophobyVisible", true);
 
-  async setup() {
-    // Définition de la fonction de rappel en dehors de la fonction setup
-    const enterLayerCallback = async () => {
-        // Utilisation de await à l'intérieur de la fonction de rappel
-        var buttonNotPressedLayer = await getLayerByName(this.layer);
-        console.log(buttonNotPressedLayer)
-        if (buttonNotPressedLayer && buttonNotPressedLayer.visible) {
-            this.triggerMessage = WA.ui.displayActionMessage({
-                message: this.message,
-                callback: () => {
-                    this.interact();
-                },
-            });
-        }
-        console.log("plooop");
-    };
-
-    // Mise en place du listener d'entrée sur le layer avec la fonction de rappel
-    WA.room.onEnterLayer(this.layer).subscribe(enterLayerCallback);
-
-    // Mise en place du listener de sortie, qui lance la fonction de sortie pour fermer le message d'interaction s'il est ouvert
+      WA.room.onEnterLayer(this.layer).subscribe(() => {
+        this.triggerMessage = WA.ui.displayActionMessage({
+          message: this.message,
+          callback: () => {
+            this.interact();
+          },
+        });
+      });
+      
+    
+    
+    //listener de sortie, lance la fonction de sortie qui fermera le message d'interaction si il est ouvert
     WA.room.onLeaveLayer(this.layer).subscribe(() => {
-        if (this.triggerMessage !== undefined) this.close();
+      if (this.triggerMessage !== undefined) this.close();
     });
   }
 
