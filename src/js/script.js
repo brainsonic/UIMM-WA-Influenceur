@@ -32,9 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         allowApi: !0,
         position: "center",
       });
-      console.log("plopito");
       tracking();
-      console.log("Tracking effectue");
   });
 
   
