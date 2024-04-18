@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       console.log("plopito");
       tracking();
+      console.log("Tracking effectue");
   });
 
   
