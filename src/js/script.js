@@ -48,7 +48,7 @@ function tracking(){
       const data = {
         type: "Popup",
         category: "Popup",
-        name: "Popup",
+        name: WA.player.name,
       }
       const request = {
         method: 'POST',
